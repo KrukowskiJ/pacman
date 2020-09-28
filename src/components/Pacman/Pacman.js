@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 
 import './style.css';
 import { ReactComponent as PacmanSVG} from './pacman.svg';
@@ -14,12 +14,31 @@ class Pacman extends Component{
 
     }
 
+    constructor(props) {
+        super(props);
+        this.pacmanRef = React.createRef();
+    }
+
+    componentDidMount() {
+        this.pacmanRef.current.focus();
+    }
+
+
+    handleKeyDown = (event) => {
+        console.log(event.keyCode,  event.key);
+    }
 
     render(){
         return(
-            <div className="pacman" 
+            <div 
+            ref = {this.pacmanRef}           
+            className="pacman" 
+            tabIndex = "0"
+            onKeyDown = {this.handleKeyDown}
             style = {this.state.position}>
+
                  <PacmanSVG/>
+
             </div>
         );
     }
