@@ -32,7 +32,6 @@ class Pacman extends Component{
 
         switch (event.key) {
             case 'ArrowUp':
-                
                 this.setState({
                     position: {
                         top: Math.max(currentTop - step, 0 ),
@@ -42,7 +41,6 @@ class Pacman extends Component{
                 });
                 break;
             case 'ArrowDown':
-                console.log(currentTop + step,window.innerHeight  );
                 this.setState({
                     position: {
                         top: Math.min(currentTop + step,window.innerHeight - border  - size - topScoreBoardHeight ),
