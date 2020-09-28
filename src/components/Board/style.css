@@ -3,5 +3,7 @@
     background-color: aquamarine;
     border: 10px cadetblue solid;
     height: calc(100vh - 50px - 20px);
+    width: calc(100vw - 20px);
+
     
 }

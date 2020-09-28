@@ -27,24 +27,26 @@ class Pacman extends Component{
     handleKeyDown = (event) => {
         const currentTop = this.state.position.top;
         const currentLeft = this.state.position.left;
-        const { step } = this.props;
+        const { step, border,size, topScoreBoardHeight} = this.props;
 
 
         switch (event.key) {
             case 'ArrowUp':
+                
                 this.setState({
                     position: {
-                        top:currentTop - step,
+                        top: Math.max(currentTop - step, 0 ),
                         left:currentLeft
                     },
                     direction: 'up'
                 });
                 break;
             case 'ArrowDown':
+                console.log(currentTop + step,window.innerHeight  );
                 this.setState({
                     position: {
-                        top:currentTop + step,
-                        left:currentLeft
+                        top: Math.min(currentTop + step,window.innerHeight - border  - size - topScoreBoardHeight ),
+                        left: currentLeft
                     },
                     direction: 'down'
                 });
@@ -53,7 +55,7 @@ class Pacman extends Component{
                 this.setState({
                     position: {
                         top:currentTop,
-                        left:currentLeft + step
+                        left: Math.min(currentLeft + step, window.innerWidth - border - size)
                     },
                     direction: 'right',
                 });
@@ -62,7 +64,7 @@ class Pacman extends Component{
                 this.setState({
                     position: {
                         top:currentTop,
-                        left:currentLeft - step
+                        left: Math.max(currentLeft - step, 0)
                     },
                     direction: 'left'
                 });
