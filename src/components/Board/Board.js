@@ -11,9 +11,10 @@ class Board extends Component{
                {/* <Food /> */}
                 <Pacman />
                <Ghost color="red" /> 
-               <Ghost color="pink"  /> 
-               <Ghost color="blue"  /> 
-               <Ghost color="yellow"  /> 
+               <Ghost color="pink" /> 
+               <Ghost color="blue" /> 
+               <Ghost color="yellow" /> 
+           
               
 
             </div>
